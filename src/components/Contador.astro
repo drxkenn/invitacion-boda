@@ -1,0 +1,85 @@
+---
+// src/components/Contador.astro
+---
+
+<!-- Usamos un fondo ligeramente más oscuro (#ece4d8) para separarlo sutilmente de la portada -->
+<section class="py-16 px-6 flex flex-col items-center justify-center bg-[#ece4d8]">
+    
+    <h2 class="text-2xl text-[#2c2825] mb-8 text-center italic" style="font-family: 'Cormorant Garamond', serif;">
+        Faltan
+    </h2>
+
+    <div class="flex items-center justify-center gap-4 text-center">
+        <!-- Días -->
+        <div class="flex flex-col items-center w-16">
+            <span id="dias" class="text-4xl text-[#7a2021] font-light mb-1" style="font-family: 'Cormorant Garamond', serif;">00</span>
+            <span class="text-[9px] uppercase tracking-[0.2em] text-[#5a544f] font-medium">Días</span>
+        </div>
+        
+        <span class="text-2xl text-[#7a2021]/40 font-light -mt-4">:</span>
+
+        <!-- Horas -->
+        <div class="flex flex-col items-center w-16">
+            <span id="horas" class="text-4xl text-[#7a2021] font-light mb-1" style="font-family: 'Cormorant Garamond', serif;">00</span>
+            <span class="text-[9px] uppercase tracking-[0.2em] text-[#5a544f] font-medium">Hrs</span>
+        </div>
+
+        <span class="text-2xl text-[#7a2021]/40 font-light -mt-4">:</span>
+
+        <!-- Minutos -->
+        <div class="flex flex-col items-center w-16">
+            <span id="minutos" class="text-4xl text-[#7a2021] font-light mb-1" style="font-family: 'Cormorant Garamond', serif;">00</span>
+            <span class="text-[9px] uppercase tracking-[0.2em] text-[#5a544f] font-medium">Min</span>
+        </div>
+
+        <span class="text-2xl text-[#7a2021]/40 font-light -mt-4">:</span>
+
+        <!-- Segundos -->
+        <div class="flex flex-col items-center w-16">
+            <span id="segundos" class="text-4xl text-[#7a2021] font-light mb-1" style="font-family: 'Cormorant Garamond', serif;">00</span>
+            <span class="text-[9px] uppercase tracking-[0.2em] text-[#5a544f] font-medium">Seg</span>
+        </div>
+    </div>
+
+</section>
+
+<script>
+    // Fecha de la boda: 17 de Octubre de 2026
+    // He puesto las 16:00:00 como hora de ejemplo, puedes cambiarla por la hora exacta de la ceremonia
+    const fechaBoda = new Date('October 17, 2026 16:00:00').getTime();
+
+    const actualizarContador = () => {
+        const ahora = new Date().getTime();
+        const diferencia = fechaBoda - ahora;
+
+        const elDias = document.getElementById('dias');
+        const elHoras = document.getElementById('horas');
+        const elMinutos = document.getElementById('minutos');
+        const elSegundos = document.getElementById('segundos');
+
+        // Solo actualiza si los elementos existen (buena práctica en Astro)
+        if (elDias && elHoras && elMinutos && elSegundos) {
+            if (diferencia > 0) {
+                const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+                // padStart asegura que siempre haya 2 dígitos (ej. "09" en lugar de "9")
+                elDias.innerText = String(dias).padStart(2, '0');
+                elHoras.innerText = String(horas).padStart(2, '0');
+                elMinutos.innerText = String(minutos).padStart(2, '0');
+                elSegundos.innerText = String(segundos).padStart(2, '0');
+            } else {
+                elDias.innerText = "00";
+                elHoras.innerText = "00";
+                elMinutos.innerText = "00";
+                elSegundos.innerText = "00";
+            }
+        }
+    };
+
+    // Actualiza cada segundo
+    setInterval(actualizarContador, 1000);
+    actualizarContador(); // Ejecución inmediata al cargar
+</script>

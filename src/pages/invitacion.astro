@@ -1,0 +1,39 @@
+---
+// src/pages/invitacion.astro
+import '../styles/global.css';
+import Hero from '../components/Hero.astro';
+import Contador from '../components/Contador.astro';
+import Galeria from '../components/Galeria.astro';
+import Detalles from '../components/Detalles.astro';
+import DressCode from '../components/DressCode.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Nuestra Boda - Anahara & Julio</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-[#e4ddd3] text-[#332f2c] m-0 antialiased" style="font-family: 'Montserrat', sans-serif;">
+	
+
+	<main class="max-w-md mx-auto bg-[#faf8f5] min-h-screen shadow-2xl overflow-hidden">
+		
+
+		<Hero />
+        <Contador />
+        <Galeria />
+        <DressCode />
+        <Detalles />
+        <Footer />
+
+	</main>
+
+</body>
+</html>

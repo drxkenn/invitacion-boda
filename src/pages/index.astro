@@ -1,11 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import '../styles/global.css';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Invitación de Boda</title>
+</head>
+<!-- El color de fondo se ajustó para fusionarse con los bordes de tu imagen en celular -->
+<body class="bg-[#e7e1d5] min-h-[100dvh] flex items-center justify-center m-0 md:p-6 font-sans">
+	
+	<!-- Se aumentó a max-w-[650px] para que destaque en PC como la del baby shower -->
+	<main class="relative w-full max-w-[650px] md:rounded-2xl overflow-hidden md:shadow-2xl">
+		
+		<img 
+			src="/portada-boda.png" 
+			alt="Portada Invitación Boda" 
+			class="w-full h-auto block"
+		/>
+
+		<!-- Hotspot interactivo -->
+		<a 
+			href="/invitacion" 
+			class="absolute block top-[69.8%] left-[32.5%] w-[36%] h-[10%] rounded-full hover:scale-105 hover:bg-white/20 transition-all duration-300 ease-out cursor-pointer"
+			aria-label="Abrir invitación"
+		>
+		</a>
+
+	</main>
+
+</body>
+</html>

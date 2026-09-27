@@ -1,0 +1,92 @@
+---
+// src/components/Galeria.astro
+---
+
+<section class="py-20 px-6 bg-[#faf8f5]">
+  <div class="max-w-md mx-auto text-center">
+    
+    <!-- Título de la sección -->
+    <h2 class="text-4xl text-[#2c2825] mb-4" style="font-family: 'Cormorant Garamond', serif;">
+      Nuestra Galería
+    </h2>
+    <p class="text-sm italic text-stone-600 mb-12" style="font-family: 'Cormorant Garamond', serif;">
+      Un pequeño vistazo a nuestra historia y los recuerdos que vendrán.
+    </p>
+
+    <!-- PARTE 1: Fotos Actuales (Mosaico) -->
+    <div class="grid grid-cols-2 gap-3 mb-16">
+      <!-- Foto 1 (Grande, vertical) -->
+      <div class="relative overflow-hidden rounded-lg group aspect-[3/4] shadow-md col-span-1">
+        <img 
+          src="/foto1boda.jpeg" 
+          alt="Anahara y Julio" 
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+      </div>
+
+      <!-- Columna derecha (2 fotos cuadradas) -->
+      <div class="grid grid-rows-2 gap-3">
+          <div class="relative overflow-hidden rounded-lg group aspect-square shadow-md">
+            <img 
+              src="/foto2boda.jpeg" 
+              alt="Momentos juntos" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+          </div>
+          <div class="relative overflow-hidden rounded-lg group aspect-square shadow-md">
+            <img 
+              src="/foto3boda.jpeg" 
+              alt="Compromiso" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+          </div>
+      </div>
+      
+       <!-- Foto 4 (Ancha, horizontal abajo) -->
+       <div class="relative overflow-hidden rounded-lg group aspect-[2/1] shadow-md col-span-2">
+        <img 
+          src="/foto4boda.jpeg" 
+          alt="Anahara y Julio sonriendo" 
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+      </div>
+    </div>
+
+
+    <!-- Separador sutil -->
+    <div class="flex items-center justify-center gap-4 mb-16">
+        <div class="h-px w-full bg-[#7a2021]/10"></div>
+        <span class="text-[#7a2021]/30">✦</span>
+        <div class="h-px w-full bg-[#7a2021]/10"></div>
+    </div>
+
+
+    <!-- PARTE 2: Marcador para Fotos Futuras (El Teaser) -->
+    <div class="border-2 border-dashed border-[#7a2021]/20 rounded-2xl p-10 bg-[#f7f3ee]">
+        
+        <!-- Icono decorativo (una cámara sutil con flores) -->
+        <div class="text-[#7a2021]/40 mb-6 flex justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera-plus"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z"/><circle cx="12" cy="13" r="3"/><path d="M16 13h.01"/><path d="M19 13h.01"/><path d="M12 9v1"/><path d="M12 16v1"/><path d="M9 13h1"/><path d="M14 13h1"/></svg>
+        </div>
+
+        <h3 class="text-3xl text-[#7a2021]/80 mb-4" style="font-family: 'Cormorant Garamond', serif;">
+            Próximamente...
+        </h3>
+        
+        <p class="text-sm text-stone-700 leading-relaxed max-w-xs mx-auto mb-6">
+            Aquí guardaremos los momentos más especiales de nuestro gran día. Vuelve después del 17 de octubre para revivir la magia con nosotros.
+        </p>
+        
+        <!-- Etiqueta elegante -->
+        <span class="inline-block bg-[#7a2021]/10 text-[#7a2021] text-xs uppercase tracking-[0.2em] px-5 py-2.5 rounded-full font-medium">
+            Recuerdos de la Boda
+        </span>
+
+    </div>
+
+  </div>
+</section>
