@@ -1,6 +1,8 @@
 ---
 // src/pages/index.astro
 import '../styles/global.css';
+
+const siteURL = "https://invitacion-boda-one-vert.vercel.app/invitacion"; 
 ---
 
 <html lang="es">
@@ -8,12 +10,27 @@ import '../styles/global.css';
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Invitación de Boda</title>
+	
+	<!-- Título y Descripción estándar -->
+	<title>Nuestra Boda - Anahara & Julio</title>
+	<meta name="description" content="Juntos en este gran camino, queremos compartir contigo un momento muy especial. ¡Acompáñanos este 17 de Octubre!" />
+
+	<!-- Etiquetas Open Graph para previsualización en WhatsApp y Redes Sociales -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={siteURL} />
+	<meta property="og:title" content="Nuestra Boda - Anahara & Julio 💍" />
+	<meta property="og:description" content="Estás invitado a compartir este momento tan especial. Pulsa aquí para abrir la invitación." />
+	
+	<!-- LA IMAGEN: Debe ser una URL completa. Usamos la misma portada que ya tienes -->
+	<meta property="og:image" content={`${siteURL}/portada-boda.png`} />
+	<!-- Es buena práctica definir el tamaño recomendado por WhatsApp (opcional pero ayuda) -->
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+
 </head>
 <!-- El color de fondo se ajustó para fusionarse con los bordes de tu imagen en celular -->
 <body class="bg-[#e7e1d5] min-h-[100dvh] flex items-center justify-center m-0 md:p-6 font-sans">
 	
-	<!-- Se aumentó a max-w-[650px] para que destaque en PC como la del baby shower -->
 	<main class="relative w-full max-w-[650px] md:rounded-2xl overflow-hidden md:shadow-2xl">
 		
 		<img 
@@ -25,7 +42,7 @@ import '../styles/global.css';
 		<!-- Hotspot interactivo -->
 		<a 
 			href="/invitacion" 
-			class="absolute block top-[69.8%] left-[32.5%] w-[36%] h-[10%] rounded-full hover:scale-105 hover:bg-white/20 transition-all duration-300 ease-out cursor-pointer"
+			class="absolute block top-[71.5%] left-[32%] w-[36%] h-[10%] rounded-full hover:scale-105 hover:bg-white/20 transition-all duration-300 ease-out cursor-pointer"
 			aria-label="Abrir invitación"
 		>
 		</a>
