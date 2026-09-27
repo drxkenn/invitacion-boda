@@ -29,13 +29,14 @@ const siteURL = "https://invitacion-boda-one-vert.vercel.app/invitacion";
 
 </head>
 <!-- Usamos un fondo ligeramente más oscuro para que la tarjeta blanca/beige resalte -->
-<body class="bg-[#e4ddd3] min-h-[100dvh] flex items-center justify-center m-0 p-4 md:p-6 font-sans">
+<body class="bg-[#f3efe8] min-h-[100dvh] flex items-center justify-center m-0 md:p-6 font-sans">
 	
 	<!-- 
-		w-[92%] o w-[95%]: Deja un pequeño margen a los lados en celular.
-		rounded-2xl y shadow-2xl: Ahora se aplican siempre, creando el efecto de tarjeta.
+		w-full: Ocupa todo el ancho en celular.
+		rounded-none shadow-none: Quitamos la "caja" en móvil.
+		md:rounded-2xl md:shadow-2xl: Mantenemos el efecto de tarjeta elegante solo en PC.
 	-->
-	<main class="relative w-[95%] max-w-[650px] rounded-2xl overflow-hidden shadow-2xl">
+	<main class="relative w-full max-w-[650px] md:rounded-2xl overflow-hidden md:shadow-2xl">
 		
 		<img 
 			src="/portada-boda.png" 
@@ -43,7 +44,6 @@ const siteURL = "https://invitacion-boda-one-vert.vercel.app/invitacion";
 			class="w-full h-auto block"
 		/>
 
-		<!-- El hotspot vuelve a estar perfectamente calibrado -->
 		<a 
 			href="/invitacion" 
 			class="absolute block top-[71.5%] left-[32%] w-[36%] h-[10%] rounded-full hover:scale-105 hover:bg-white/20 transition-all duration-300 ease-out cursor-pointer"
