@@ -1,0 +1,76 @@
+---
+// src/components/AudioPlayer.astro
+---
+
+<audio id="bg-music" loop>
+    <source src="/cancion-boda.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Contenedor flex para alinear el botón y el mensaje -->
+<div class="fixed top-6 left-6 z-50 flex items-center gap-3">
+    
+    <button 
+        id="music-btn" 
+        class="bg-[#faf8f5]/90 backdrop-blur-sm p-3.5 rounded-full shadow-lg border border-[#7a2021]/10 text-[#7a2021] hover:scale-110 hover:bg-[#faf8f5] transition-all duration-300 flex items-center justify-center cursor-pointer"
+        aria-label="Reproducir música"
+    >
+        <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-play">
+            <polygon points="6 3 20 12 6 21 6 3"/>
+        </svg>
+        
+        <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="hidden lucide lucide-pause">
+            <rect x="14" y="4" width="4" height="16" rx="1"/>
+            <rect x="6" y="4" width="4" height="16" rx="1"/>
+        </svg>
+    </button>
+
+    <!-- Tooltip temporal -->
+    <span 
+        id="music-tooltip" 
+        class="bg-[#faf8f5]/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-medium tracking-widest uppercase text-[#7a2021] shadow-md border border-[#7a2021]/10 animate-pulse transition-opacity duration-500"
+    >
+        Escuchar canción
+    </span>
+
+</div>
+
+<script>
+    const btn = document.getElementById('music-btn');
+    const audio = document.getElementById('bg-music') as HTMLAudioElement;
+    const iconPlay = document.getElementById('icon-play');
+    const iconPause = document.getElementById('icon-pause');
+    const tooltip = document.getElementById('music-tooltip');
+
+    let isPlaying = false;
+
+    // Temporizador para desvanecer y eliminar el tooltip tras 6 segundos
+    let tooltipTimer = setTimeout(() => {
+        if (tooltip) {
+            tooltip.classList.remove('animate-pulse');
+            tooltip.classList.add('opacity-0');
+            setTimeout(() => tooltip.remove(), 500); // Lo borra del HTML para que no estorbe
+        }
+    }, 6000);
+
+    if (btn && audio && iconPlay && iconPause) {
+        btn.addEventListener('click', () => {
+            // Si hacen clic, ocultamos el tooltip al instante y cancelamos el temporizador
+            if (tooltip && tooltip.parentNode) {
+                clearTimeout(tooltipTimer);
+                tooltip.classList.add('opacity-0');
+                setTimeout(() => tooltip.remove(), 500);
+            }
+
+            if (isPlaying) {
+                audio.pause();
+                iconPlay.classList.remove('hidden');
+                iconPause.classList.add('hidden');
+            } else {
+                audio.play();
+                iconPlay.classList.add('hidden');
+                iconPause.classList.remove('hidden');
+            }
+            isPlaying = !isPlaying;
+        });
+    }
+</script>
